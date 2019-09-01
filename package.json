@@ -2,10 +2,12 @@
   "name": "koji-leaderboard-api",
   "version": "0.0.1",
   "description": "Koji Database based Leaderboard API setup, at your doorsteps.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
+    "start": "npm run build && node dist/index.js",
+    "dev": "npm run build && nodemon dist/index.js",
     "lint": "eslint src/*.ts",
     "lint:fix": "eslint src/*.ts --fix",
     "test": "echo \"No tests specified\""
@@ -41,6 +43,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "nodemon": "^1.19.1",
     "prettier": "^1.18.2",
     "typescript": "^3.6.2",
     "typings": "^2.1.1"
