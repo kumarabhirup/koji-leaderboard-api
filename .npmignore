@@ -1,1 +1,8 @@
 src
+.vscode
+.eslintrc
+.prettierrc
+package-lock.json
+tsconfig.json
+.gitignore
+node_modules

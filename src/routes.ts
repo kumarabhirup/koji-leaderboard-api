@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 import Database from '@withkoji/database'
 import uuid from 'uuid'
 
@@ -13,6 +12,7 @@ interface Idata {
 /* eslint-enable prettier/prettier */
 
 export default (app: any): void => {
+  // To get the Leaderboard Scores
   app.get('/leaderboard', async (req: any, res: any) => {
     const database = new Database()
     const rawScores = await database.get('leaderboard')
@@ -39,9 +39,10 @@ export default (app: any): void => {
     })
   })
 
-  app.post('/leaderboard/save', async (req: any, res: any) => {
+  // To save the Leaderboard Scores
+  app.post('/leaderboard', async (req: any, res: any) => {
     const recordId = uuid.v4()
-    const recordBody = {
+    const recordBody: Idata = {
       name: req.body.name,
       score: req.body.score,
       privateAttributes: req.body.privateAttributes,
@@ -53,6 +54,9 @@ export default (app: any): void => {
 
     res.status(200).json({
       success: true,
+      data: {
+        ...recordBody,
+      },
     })
   })
 }
