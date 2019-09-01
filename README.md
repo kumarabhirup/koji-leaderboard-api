@@ -86,6 +86,63 @@ In the above example, we make use of an express server. What you need to do, is 
 | 1 | GET        | `/leaderboard` |                                                    -                                                   |
 | 2 | POST       | `/leaderboard` | name: String 👈 _required_ <br /> score: Number 👈 _required_ <br /> privateAttributes: Object 👈 _optional_ |
 
+### GET `/leaderboard`
+
+Example Response 👇
+```json
+{
+   "success":true,
+   "scores":[
+      {
+         "name":"Rafa",
+         "score":4766,
+         "dateCreated":1567290764
+      },
+      {
+         "name":"Sean",
+         "score":833,
+         "dateCreated":1567178966
+      },
+      {
+         "name":"yeezy",
+         "score":487,
+         "dateCreated":1567189679
+      },
+      {
+         "name":"diddy",
+         "score":467,
+         "dateCreated":1567186095
+      }
+   ]
+}
+```
+
+### POST `/leaderboard`
+
+#### Parameters
+
+The parameters have to be a Body in a JSON format, to be processed correctly.
+
+- `name` 👉 **String (required)**
+- `score` 👉 **Number (required)**
+- `privateAttributes` 👉 **Object (optional)** The Object can contain email, or any private information that shouldn't be accessed from the `GET /leaderboard` endpoint.
+
+#### Example Response
+
+```json
+{
+  "success": true,
+  "data": {
+    "name": "Kumar Abhirup",
+    "score": 5280,
+    "privateAttributes": {
+      "email": "kumarsExampleMail@gmail.com"
+    },
+    "dateCreated":1567186095
+  }
+}
+```
+
 <br /><br />
 
 # 📝 License
