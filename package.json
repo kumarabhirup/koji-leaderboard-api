@@ -1,0 +1,25 @@
+{
+  "name": "koji-leaderboard-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KumarAbhirup/koji-leaderboard-api.git"
+  },
+  "keywords": [
+    "koji",
+    "koji-database",
+    "npm",
+    "package"
+  ],
+  "author": "Kumar Abhirup <kumarabhirup5@gmail.com> (http://kumar.now.sh)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KumarAbhirup/koji-leaderboard-api/issues"
+  },
+  "homepage": "https://github.com/KumarAbhirup/koji-leaderboard-api#readme"
+}
