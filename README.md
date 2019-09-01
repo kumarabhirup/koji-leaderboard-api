@@ -7,7 +7,7 @@
 [![Type](https://img.shields.io/badge/type-API-yellow.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
 [![stage](https://img.shields.io/badge/stage-BetaTesting%20%F0%9F%94%A5-000000.svg?style=flat-square)](https://github.com/KumarAbhirup/koji-leaderboard-api)
 [![npm](https://img.shields.io/badge/npm-koji--leaderboard--api-CB3837.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
-[![Version](https://img.shields.io/badge/version-v0.0.8-green.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
+[![Version](https://img.shields.io/badge/version-v0.0.9-green.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
 [![Prefers](https://img.shields.io/badge/prefers-NPM%20Installation-blue.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
 [![Twitter](https://img.shields.io/twitter/follow/kumar_abhirup.svg?style=social&label=@kumar_abhirup)](https://twitter.com/kumar_abhirup)
 <!-- [![GitHub stars](https://img.shields.io/github/stars/KumarAbhirup/koji-leaderboard-api.svg?style=social&label=Stars)](https://github.com/KumarAbhirup/koji-leaderboard-api) -->
@@ -104,21 +104,21 @@ async function fetchData() {
 }
 ```
 
-#### Example Response 👇
+#### Successful Example Response 👇
 
 ```json
 {
-   "success":true,
-   "scores":[
+   "success": true,
+   "scores": [
       {
-         "name":"Rafa",
-         "score":4766,
-         "dateCreated":1567290764
+         "name": "Rafa",
+         "score": 4766,
+         "dateCreated": 1567290764
       },
       {
-         "name":"Sean",
-         "score":833,
-         "dateCreated":1567178966
+         "name": "Sean",
+         "score": 833,
+         "dateCreated": 1567178966
       }
    ]
 }
@@ -132,9 +132,9 @@ async function fetchData() {
 
 The parameters have to be a Body in a JSON format, to be processed correctly.
 
-- `name` 👉 **String (required)**
-- `score` 👉 **Number (required)**
-- `privateAttributes` 👉 **Object (optional)** The Object can contain email, or any private information that shouldn't be accessed from the `GET /leaderboard` endpoint.
+- `name` 👉 **String: { strLength should be more than 3 } (required)**
+- `score` 👉 **Number: { Score should be more than 1 } (required)**
+- `privateAttributes` 👉 **Object or null (optional)** The Object can contain email, or any private information that shouldn't be accessed from the `GET /leaderboard` endpoint.
 
 #### JavaScript fetch example
 
@@ -167,7 +167,7 @@ async function saveData() {
 }
 ```
 
-#### Example Response
+#### Successful Example Response 👇
 
 ```json
 {
@@ -178,7 +178,7 @@ async function saveData() {
     "privateAttributes": {
       "email": "kumarsExampleMail@gmail.com"
     },
-    "dateCreated":1567186095
+    "dateCreated": 1567186095
   }
 }
 ```

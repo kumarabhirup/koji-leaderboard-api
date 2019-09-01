@@ -42,6 +42,7 @@ export default (app: any): void => {
   // To save the Leaderboard Scores
   app.post('/leaderboard', async (req: any, res: any) => {
     const recordId = uuid.v4()
+
     const recordBody: Idata = {
       name: req.body.name,
       score: req.body.score,
@@ -49,14 +50,34 @@ export default (app: any): void => {
       dateCreated: Math.round(Date.now() / 1000),
     }
 
-    const database = new Database()
-    await database.set('leaderboard', recordId, recordBody)
+    if (
+      typeof recordBody.name === 'string' &&
+      recordBody.name.length > 3 &&
+      typeof recordBody.score === 'number' &&
+      recordBody.score > 1 &&
+      (typeof recordBody.privateAttributes === 'object' ||
+        recordBody.privateAttributes === null)
+    ) {
+      const database = new Database()
+      await database.set('leaderboard', recordId, recordBody)
 
-    res.status(200).json({
-      success: true,
-      data: {
-        ...recordBody,
-      },
-    })
+      res.status(200).json({
+        success: true,
+        data: {
+          ...recordBody,
+        },
+      })
+    } else {
+      res.status(400).json({
+        success: false,
+        error: {
+          message: 'Invalid, Incomplete or Inaccurate data provided',
+          developerNotice:
+            'Please read the documentation carefully and provide the correct parameters.',
+          documentationURL:
+            'https://github.com/KumarAbhirup/koji-leaderboard-api',
+        },
+      })
+    }
   })
 }
