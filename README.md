@@ -7,7 +7,7 @@
 [![Type](https://img.shields.io/badge/type-API-yellow.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
 [![stage](https://img.shields.io/badge/stage-BetaTesting%20%F0%9F%94%A5-000000.svg?style=flat-square)](https://github.com/KumarAbhirup/koji-leaderboard-api)
 [![npm](https://img.shields.io/badge/npm-koji--leaderboard--api-CB3837.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
-[![Version](https://img.shields.io/badge/version-v0.0.7-green.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
+[![Version](https://img.shields.io/badge/version-v0.0.8-green.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
 [![Prefers](https://img.shields.io/badge/prefers-NPM%20Installation-blue.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
 [![Twitter](https://img.shields.io/twitter/follow/kumar_abhirup.svg?style=social&label=@kumar_abhirup)](https://twitter.com/kumar_abhirup)
 <!-- [![GitHub stars](https://img.shields.io/github/stars/KumarAbhirup/koji-leaderboard-api.svg?style=social&label=Stars)](https://github.com/KumarAbhirup/koji-leaderboard-api) -->
@@ -86,9 +86,26 @@ In the above example, we make use of an express server. What you need to do, is 
 | 1 | GET        | `/leaderboard` |                                                    -                                                   |
 | 2 | POST       | `/leaderboard` | name: String 👈 _required_ <br /> score: Number 👈 _required_ <br /> privateAttributes: Object 👈 _optional_ |
 
+<br />
+
 ### GET `/leaderboard`
 
-Example Response 👇
+#### JavaScript fetch example
+
+```javascript
+import Koji from 'koji-tools'
+
+async function fetchData() {
+  const response = await fetch(`${Koji.config.serviceMap.backend}/leaderboard`)
+                          .then(response => response.json())
+                          .catch(err => throw new Error('Fetch Error: ', err))
+
+  return response
+}
+```
+
+#### Example Response 👇
+
 ```json
 {
    "success":true,
@@ -102,20 +119,12 @@ Example Response 👇
          "name":"Sean",
          "score":833,
          "dateCreated":1567178966
-      },
-      {
-         "name":"yeezy",
-         "score":487,
-         "dateCreated":1567189679
-      },
-      {
-         "name":"diddy",
-         "score":467,
-         "dateCreated":1567186095
       }
    ]
 }
 ```
+
+<br />
 
 ### POST `/leaderboard`
 
@@ -126,6 +135,37 @@ The parameters have to be a Body in a JSON format, to be processed correctly.
 - `name` 👉 **String (required)**
 - `score` 👉 **Number (required)**
 - `privateAttributes` 👉 **Object (optional)** The Object can contain email, or any private information that shouldn't be accessed from the `GET /leaderboard` endpoint.
+
+#### JavaScript fetch example
+
+```javascript
+import Koji from 'koji-tools'
+
+async function saveData() {
+  const body = {
+    name: "Kumar Abhirup",
+    score: 5280,
+    privateAttributes: {
+      email: "kumarsExampleMail@gmail.com"
+    },
+  }
+
+  await fetch(`${Koji.config.serviceMap.backend}/leaderboard`, {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  })
+  .then(response => response.json())
+  .then(jsonResponse => {
+    console.log(jsonResponse) // see example response
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
+```
 
 #### Example Response
 
