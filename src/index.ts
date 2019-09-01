@@ -4,4 +4,4 @@
 
 import leaderboardRoutes from './routes'
 
-export default leaderboardRoutes
+module.exports = leaderboardRoutes
