@@ -1,8 +1,9 @@
 {
+  "private": false,
   "name": "koji-leaderboard-api",
   "version": "0.0.1",
   "description": "Koji Database based Leaderboard API setup, at your doorsteps.",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
@@ -21,6 +22,9 @@
     "koji-database",
     "npm",
     "package"
+  ],
+  "files": [
+    "dist/*"
   ],
   "author": "Kumar Abhirup <kumarabhirup5@gmail.com> (http://kumar.now.sh)",
   "license": "MIT",
