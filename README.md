@@ -1,3 +1,95 @@
-# koji-leaderboard-api
+<div align="center">
 
-Koji Database based Leaderboard API setup, at your doorsteps.
+<br />
+
+<h1>koji-leaderboard-api</h1>
+
+[![Type](https://img.shields.io/badge/type-API-yellow.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
+[![stage](https://img.shields.io/badge/stage-BetaTesting%20%F0%9F%94%A5-000000.svg?style=flat-square)](https://github.com/KumarAbhirup/koji-leaderboard-api)
+[![npm](https://img.shields.io/badge/npm-koji--leaderboard--api-CB3837.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
+[![Version](https://img.shields.io/badge/version-v0.0.7-green.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
+[![Prefers](https://img.shields.io/badge/prefers-NPM%20Installation-blue.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
+[![Twitter](https://img.shields.io/twitter/follow/kumar_abhirup.svg?style=social&label=@kumar_abhirup)](https://twitter.com/kumar_abhirup)
+<!-- [![GitHub stars](https://img.shields.io/github/stars/KumarAbhirup/koji-leaderboard-api.svg?style=social&label=Stars)](https://github.com/KumarAbhirup/koji-leaderboard-api) -->
+
+</div>
+
+<br /><br />
+
+# 📦 `koji-leaderboard-api`
+### **Koji Database based Leaderboard API setup, at your doorsteps.**
+
+---
+
+When you create games or any competitive webapp on Koji, you need to have Leaderboards. Setting them up in the backend could sometimes be a horrific task. So, you have this simple **plugNplay Express API** that runs smoothly with the most minimal setup!
+
+<br /><br />
+
+# 💃 Documentation
+
+## Install `koji-leaderboard-api`
+
+To install the API on your Node.js backend, run the following.
+
+```bash
+$ npm i -S koji-leaderboard-api
+```
+
+<br />
+
+## Usage
+
+See the following example 👇
+
+```javascript
+import express from 'express'
+import bodyParser from 'body-parser'
+
+import kojiLeaderboardApi from 'koji-leaderboard-api' // The library you are using
+
+const app = express() // This is the Express App Instance
+
+// Body parser
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+  limit: '2mb',
+  extended: true,
+}))
+
+// CORS
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*') // use '*' as second param to allow any client to hack in
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, X-Jiro-Request-Tag')
+  next()
+})
+
+/**
+ * @name kojiLeaderboardApi
+ * @description Doing `kojiLeaderboardApi(app)` activates the `/leaderboard` GET and POST API endpoints
+ *              that your frontend can use to Display and Update Leaderboard
+ */
+kojiLeaderboardApi(app)
+
+// Listen on Port 8080. Visit http://localhost:8080 to see the backend.
+app.listen(8080, null, async err => {
+    if (err) console.log(err.message)
+    console.log('[koji] Backend Started 👏')
+})
+```
+
+In the above example, we make use of an express server. What you need to do, is to just pass the `Express App Instance` as the only parameter to the `kojiLeaderboardApi()` function. That activates your Leaderboard API.
+
+## API Endpoints
+
+|   | **Method** | **Endpoint**   | **Parameters (JSON Body)**                                                                             |
+|---|------------|----------------|--------------------------------------------------------------------------------------------------------|
+| 1 | GET        | `/leaderboard` |                                                    -                                                   |
+| 2 | POST       | `/leaderboard` | name: String 👈 _required_ <br /> score: Number 👈 _required_ <br /> privateAttributes: Object 👈 _optional_ |
+
+<br /><br />
+
+# 📝 License
+
+**MIT © [Kumar Abhirup](https://www.twitter.com/kumar_abhirup)**
+<br />
+_Follow me 👋 **on Twitter**_ →   [![Twitter](https://img.shields.io/twitter/follow/kumar_abhirup.svg?style=social&label=@kumar_abhirup)](https://twitter.com/kumar_abhirup/)
