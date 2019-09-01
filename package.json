@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "koji-leaderboard-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Koji Database based Leaderboard API setup, at your doorsteps.",
   "main": "./dist/index.js",
   "scripts": {
