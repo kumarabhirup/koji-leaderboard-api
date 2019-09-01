@@ -3,9 +3,9 @@
     "target": "es5",
     "module": "umd",
     "moduleResolution": "node",
-    "declaration": true,
+    "declaration": false,
     "outDir": "./dist",
-    "strict": true,
+    "strict": false, // to avoid "you need declarations" error
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,

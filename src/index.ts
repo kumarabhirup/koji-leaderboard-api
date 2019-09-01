@@ -1,1 +1,1 @@
-console.log('TypeScript is working!')
+export default 'routes'

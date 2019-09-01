@@ -47,5 +47,10 @@
     "prettier": "^1.18.2",
     "typescript": "^3.6.2",
     "typings": "^2.1.1"
+  },
+  "dependencies": {
+    "@types/uuid": "^3.4.5",
+    "@withkoji/database": "^1.0.14",
+    "uuid": "^3.3.3"
   }
 }
