@@ -7,7 +7,7 @@
 [![Type](https://img.shields.io/badge/type-API-yellow.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
 [![stage](https://img.shields.io/badge/stage-BetaTesting%20%F0%9F%94%A5-000000.svg?style=flat-square)](https://github.com/KumarAbhirup/koji-leaderboard-api)
 [![npm](https://img.shields.io/badge/npm-koji--leaderboard--api-CB3837.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
-[![Version](https://img.shields.io/badge/version-v0.1.0-green.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
+[![Version](https://img.shields.io/badge/version-v1.0.0-green.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
 [![Prefers](https://img.shields.io/badge/prefers-NPM%20Installation-blue.svg?style=flat-square)](https://www.npmjs.com/package/koji-leaderboard-api)
 [![Twitter](https://img.shields.io/twitter/follow/kumar_abhirup.svg?style=social&label=@kumar_abhirup)](https://twitter.com/kumar_abhirup)
 <!-- [![GitHub stars](https://img.shields.io/github/stars/KumarAbhirup/koji-leaderboard-api.svg?style=social&label=Stars)](https://github.com/KumarAbhirup/koji-leaderboard-api) -->

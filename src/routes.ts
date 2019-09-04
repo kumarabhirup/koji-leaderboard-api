@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Database from '@withkoji/database'
-import uuid from 'uuid'
-import express from 'express'
+import * as uuid from 'uuid'
+import * as express from 'express'
 
 /* eslint-disable prettier/prettier */
 interface Idata {
